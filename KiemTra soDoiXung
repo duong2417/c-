@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    string n;
+    bool b = true;
+    cin >> n;
+    int l = n.length();
+    for (int i = 0; i < l / 2; i++)
+    {
+        if (n[i] != n[l - i - 1])
+            b = false;
+    }
+    if (b == false)
+        cout << "ko ";
+    cout << "doi xung";
+    char max = 0;
+    for (int i = 0; i < l; i++)
+    {
+        if (n[i] > max)
+            max = n[i];
+    }
+    cout << "so lon nhat la " << max;
+    system("pause");
+    return 0;
+}
