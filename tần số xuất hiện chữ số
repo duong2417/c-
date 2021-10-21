@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+int dem[100];
+int main()
+{
+    int soLuong, k;
+    int str[39];
+    cin >> soLuong >> k;
+    for (int i = 0; i < soLuong; i++)
+        cin >> str[i];
+    for (int i = 0; i < 100; i++)
+        dem[i] = 0;
+    for (int i = 0; i < soLuong; i++)
+    {
+        dem[str[i]]++;
+    }
+    for (int i = 0; i < 100; i++)
+        if (dem[i] >= k)
+            cout << str[i];
+        else
+            cout << "-1";
+    system("pause");
+    return 0;
+}
