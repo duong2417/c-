@@ -1,25 +1,37 @@
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-int dem[100];
+
 int main()
 {
+    list<int> ds;
+    int dem[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     int soLuong, k;
     int str[39];
     cin >> soLuong >> k;
     for (int i = 0; i < soLuong; i++)
         cin >> str[i];
-    for (int i = 0; i < 100; i++)
-        dem[i] = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < soLuong; j++)
+        {
+            if (i == str[j])
+            {
+                dem[str[j]]++;
+            }
+        }
+    }
     for (int i = 0; i < soLuong; i++)
     {
-        dem[str[i]]++;
+        if (dem[str[i]] > (k-1) && str[i]!=str[i+i])
+        {
+            cout << str[i]<<" ";
+            ds.push_back(str[i]);
+            i++;
+        }
     }
-    for (int i = 0; i < 100; i++)
-        if (dem[i] >= k)
-            cout << str[i];
-        else
-            cout << "-1";
+    if (ds.size() == 0)
+        cout << "-1";
     system("pause");
     return 0;
 }
