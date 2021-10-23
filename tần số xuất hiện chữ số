@@ -23,14 +23,13 @@ int main()
     }
     for (int i = 0; i < soLuong; i++)
     {
-        if (dem[str[i]] > (k-1) && str[i]!=str[i+i])
+        if (dem[i] > k-1)
         {
-            cout << str[i]<<" ";
+            cout << i<<" ";
             ds.push_back(str[i]);
-            i++;
         }
-    }
-    if (ds.size() == 0)
+    
+     if (ds.size() == 0)
         cout << "-1";
     system("pause");
     return 0;
