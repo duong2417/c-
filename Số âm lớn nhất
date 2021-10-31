@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+    int so[100];
+    int n;
+    cin >> n;
+    int max = -pow(10, 5);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> so[i];
+        if (abs(so[i]) <= pow(10, 5) && so[i] < 0)
+            if (so[i] > max)
+                max = so[i];
+    }
+    cout << max;
+    system("pause");
+    return 0;
+}
