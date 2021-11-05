@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+string ten(string ten)
+{
+    cout << ten + " cao nhat";
+}
+int main()
+{
+    float a, b, c;
+    cin >> a >> b >> c;
+    if (a > b)
+    {
+        if (a > c)
+            ten("AN");
+        if (c > a)
+            ten("CUC");
+    }
+    else
+        ten("BINH");
+    system("pause");
+}
