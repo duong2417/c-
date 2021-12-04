@@ -1,4 +1,4 @@
-//cặp số thân thiết
+//cặp số thân thiết khi chúng có chung ước số ngto lớn nhất 
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -7,30 +7,34 @@ int main()
     int a, b;
     cin >> a >> b;
     vector<int> pr;
-
     vector<int> list;
-
-    for (int i = 2; i < 1000; i++)
+    
+    //lập list SNT<1000
+    for (int i = 2; i < 1000; i++)//số bị chia
     {
         int dem = 0;
-        for (int j = 2; j <= sqrt(1000); j++)
+        for (int j = 2; j <= sqrt(1000); j++)//số chia
         {
             if (i % j == 0)
                 dem++;
         }
-        if (dem == 1)
+        if (dem == 1) //i chỉ chia hết cho chính nó
             pr.push_back(i);
     }
-    for (int i = a; i > 1; i--)
+    
+//list ước ngto của a giảm dần (lấy phần tử đầu)
+    for (int i = a; i > 1; i--)//ước của a
     {
-        for (int j = a; j >= 0; j--)
+        for (int j = a; j >= 0; j--)//chỉ số của pr[]
         {
-            if (a % i == 0 && i == pr[j])
+            if (a % i == 0 && i == pr[j])//ước của a và thuộc ds SNT
             {
                 list.push_back(i);
             }
         }
     }
+    
+//list ước ngto của b tăng dần (lấy phần tử cuối)
     for (int i = 2; i <= b; i++)
     {
         for (int j = b; j >= 0; j--)
@@ -41,11 +45,18 @@ int main()
             }
         }
     }
-    cout << *list.begin() << " " << *list.rbegin() << "\n";
+    cout<<"uoc ngto cua 2 so: ";
+    vector<int>::iterator i;//kbao con trỏ để duyệt
+    for(i=list.begin(); i!=list.end(); i++){
+        cout<<*i<<" "; 
+    }
+    
+    cout<<"\nuoc ngto lon nhat: ";
+    cout << *list.begin() << " " << *list.rbegin()<<"\n";
+    
     if (*list.begin() == *list.rbegin())
         cout << "cap so than thiet";
     else
         cout << "cap so KO than thiet";
-    system("pause");
     return 0;
 }
