@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{ int n;
+//[h,a]
+//Bước 1: Tìm tổng hoa max tại vị trí i
+cin>>n;
+int a[n][2];
+vector<int> s(n,0);
+
+for (int i=0;i<n;++i){
+    for(int j=0;j<2;++j)
+    {cin>>a[i][j];
+    
+}}
+for (int i=0;i<n;++i)
+s[i]=a[i][1];
+
+for (int i=0;i<n;++i){
+    for (int j=0;j<i;++j){
+        if (a[i][0]>a[j][0])//i sau j=> i>j
+     {          
+         s[i]=max(s[i],s[j]+a[i][1]);
+     } 
+}}
+
+
+cout<<"Mảng tổng max s[i] với i = 0..n: ";
+vector<int> ::iterator i;
+for(i=s.begin();i!=s.end();++i){
+    cout<<*i<<"\t";
+}
+    //Bước 2: Tìm max của tất cả tổng max tại i
+    int sum_max=s[0];
+    for (int i=1;i<n;++i) if(s[i]>sum_max) sum_max=s[i];
+    cout<<endl<<"Tổng số bông max cần tìm: "<<sum_max;
+    return main();
+}
+
